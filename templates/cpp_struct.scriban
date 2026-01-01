@@ -1,0 +1,7 @@
+// Message ID: {{ id }}
+struct {{ name }}
+{
+{{~ for field in fields ~}}
+    {{ field.type }} {{ field.name }};{{ if field.comment }} // {{ field.comment }}{{ end }}
+{{~ end ~}}
+};

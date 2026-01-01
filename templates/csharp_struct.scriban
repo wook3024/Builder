@@ -1,0 +1,13 @@
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public struct {{ name }}
+{
+{{~ for field in fields ~}}
+    {{~ if field.marshal_attribute ~}}
+    {{ field.marshal_attribute }}
+    {{~ end ~}}
+    {{~ if field.is_fixed_array ~}}
+    [MarshalAs(UnmanagedType.ByValArray, SizeConst = {{ field.array_size }})]
+    {{~ end ~}}
+    public {{ field.type }} {{ field.name }}; // Offset: {{ field.offset }}, Original: {{ field.original_type }}
+{{~ end ~}}
+}

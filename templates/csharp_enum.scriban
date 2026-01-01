@@ -1,0 +1,6 @@
+public enum {{ name }}{{ if show_underlying_type }} : {{ underlying_type }}{{ end }}
+{
+{{~ for value in values ~}}
+    {{ value.name }} = {{ value.value }}{{ if !for.last }},{{ end }}
+{{~ end ~}}
+}

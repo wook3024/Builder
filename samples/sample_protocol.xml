@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="GameProtocol" namespace="GameProtocol">
+
+    <!-- Enums -->
+    <enum name="PacketType" type="uint16_t">
+        <value name="Login" value="1" />
+        <value name="Logout" value="2" />
+        <value name="Move" value="3" />
+        <value name="Attack" value="4" />
+        <value name="Chat" value="5" />
+    </enum>
+
+    <enum name="ErrorCode" type="int32_t">
+        <value name="Success" value="0" />
+        <value name="InvalidCredentials" value="-1" />
+        <value name="ServerFull" value="-2" />
+        <value name="NotAuthorized" value="-3" />
+    </enum>
+
+    <!-- Messages -->
+    <message name="LoginRequest" id="1">
+        <field name="username" type="string" />
+        <field name="password" type="string" />
+        <field name="clientVersion" type="uint32_t" />
+    </message>
+
+    <message name="LoginResponse" id="2">
+        <field name="errorCode" type="ErrorCode" />
+        <field name="sessionId" type="uint64_t" />
+        <field name="playerName" type="string" />
+    </message>
+
+    <message name="MoveRequest" id="3">
+        <field name="positionX" type="float" />
+        <field name="positionY" type="float" />
+        <field name="positionZ" type="float" />
+        <field name="timestamp" type="uint64_t" />
+    </message>
+
+    <message name="ChatMessage" id="5">
+        <field name="senderId" type="uint64_t" />
+        <field name="message" type="string" />
+        <field name="timestamp" type="uint64_t" />
+    </message>
+
+    <message name="InventoryUpdate" id="6">
+        <field name="items" type="uint32_t[]" size="32" />
+        <field name="itemCount" type="uint16_t" />
+    </message>
+
+</protocol>

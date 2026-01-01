@@ -1,0 +1,6 @@
+enum class {{ name }}{{ if underlying_type != "int" }} : {{ underlying_type }}{{ end }}
+{
+{{~ for value in values ~}}
+    {{ value.name }} = {{ value.value }}{{ if !for.last }},{{ end }}
+{{~ end ~}}
+};

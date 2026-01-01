@@ -1,0 +1,15 @@
+#pragma once
+
+#include <cstdint>
+#include <string>
+#include <vector>
+#include <array>
+
+namespace {{ namespace }}
+{
+
+{{ enums }}
+
+{{ messages }}
+
+} // namespace {{ namespace }}

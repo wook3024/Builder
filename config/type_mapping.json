@@ -1,0 +1,27 @@
+{
+  "primitiveTypes": {
+    "char": "sbyte",
+    "int8_t": "sbyte",
+    "uint8_t": "byte",
+    "int16_t": "short",
+    "uint16_t": "ushort",
+    "int32_t": "int",
+    "uint32_t": "uint",
+    "int64_t": "long",
+    "uint64_t": "ulong",
+    "float": "float",
+    "double": "double",
+    "bool": "bool",
+    "size_t": "nuint"
+  },
+  "specialTypes": {
+    "std::string": "string",
+    "char*": "string",
+    "void*": "IntPtr"
+  },
+  "containerPatterns": {
+    "std::vector<T>": "List<T>",
+    "std::array<T,N>": "T[]",
+    "std::map<K,V>": "Dictionary<K,V>"
+  }
+}
